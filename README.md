@@ -1,4 +1,4 @@
-# IGAD
+# Multivariate Time Series Anomaly Detection with Idempotent Reconstruction
 Idempotent reconstruction for MTS anomaly detection.
 
 # Introduction of this work
@@ -7,4 +7,12 @@ Reconstruction-based methods are commonly choices for multivariate time series (
 ![Architecture](pic/Architecture.png)
 
 # Usage
-We have uploaded codes in module IGAD and share **Anomaly Transformer plus IGAD** as the case. You can modify the codes to make sure that variables _fz_, _f_z_, _ff_z_ and _f_fz_ are in the correct position to obtain reconstructed time series during training.
+We have uploaded codes in module IGAD and share **[Anomaly Transformer, ICLR 2022](https://github.com/thuml/Anomaly-Transformer) plus IGAD** as the case. You can modify the codes to make sure that variables _fz_, _f_z_, _ff_z_ and _f_fz_ are in the correct position to obtain reconstructed time series during training.
+
+## ign_simplified.py: Simple Standard Deviation Calculation
+This version is suitable for most data processing scenarios where standard deviation is directly computed from frequency domain data. It is straightforward and simple. This approach generally works well when the standard deviation of the input data is not too small.
+
+## ign_stabilized.py: Improved Numerical Stability
+This version is more concerned with numerical stability and is suitable for handling cases where the data distribution may result in very small variances. It is more robust when dealing with extreme data values or distributions.
+
+You can choose one of them to adjust module IGAD to your own MTS anomaly detection model.
